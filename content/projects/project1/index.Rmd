@@ -1,6 +1,6 @@
 ---
-title: "IF Project"
-author: "Group 15A"
+title: "Investing using the CAPE Ratio: An Analysis Using R"
+author: "Karna Patel"
 date: "15/10/2020"
 output:
   html_document: default
