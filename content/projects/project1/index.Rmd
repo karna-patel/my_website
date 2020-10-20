@@ -9,6 +9,9 @@ output:
 
 
 
+**The purpose of this analysis is to assess the accuracy of the CAPE ratio in predicting long term stock market returns.This analysis will include a summary and introduction to this topic, commentary on various relevant academic literatures, analysis of the CAPE ratio and prior market activity, and the synthesis and evaluation of a simple investment strategy using this metric.**
+
+
 ## Loading & Cleaning Data
 
 
@@ -260,5 +263,7 @@ returns_plot <- returns %>% ggplot(aes(x=Date)) +
                         theme(legend.position = "none")
 
 returns_plot
+```  
 
-```
+**The model has given us a strong understanding of the implications of using the CAPE ratio as a metric for predicting future capital market returns. While it is a great theoretical financial metric, it is important to consider the context in which it is being used. It is not an all-encompassing metric that will always signal when a market is undervalued or overvalued. Similar to any other measure, it also has drawbacks and weaknesses that should be understood when using it in a practical sense and it is only as accurate as the numbers used when calculating it. A singular focus on using this metric can result in investors failing to accurately understand the market and missing out on opportunities to generate returns. As our strategy demonstrated, the CAPE ratio is still a phenomenal metric that investors should use and when adjusted for its shortcomings, it can be a great tool to analyze and understand the market.**
+
