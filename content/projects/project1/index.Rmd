@@ -8,14 +8,18 @@ output:
 ---
 
 
-
 **The purpose of this analysis is to assess the accuracy of the CAPE ratio in predicting long term stock market returns.This analysis will include a summary and introduction to this topic, commentary on various relevant academic literatures, analysis of the CAPE ratio and prior market activity, and the synthesis and evaluation of a simple investment strategy using this metric.**
 
+**The cyclical adjusted price-to-earnings (CAPE or Shiller’s P/E) ratio is a variation of the price-to-earnings (P/E) ratio. This concept was first introduced by Robert Shiller and John Campbell, who proposed calculating the P/E ratio with an average of real earnings from the previous ten years.**
+
+
+**Before creating our investment model, preliminary data analysis was conducted on S&P market data, CAPE ratios, and other economic indicators. Our team wanted to find a clean dataset containing all the needed information for our analysis within it. Shiller’s public dataset on real market returns, real interest rates, inflation levels and CAPE ratio values was used.  This dataset provides monthly data on S&P index prices, S&P index dividends, S&P index earnings, inflation, long-term interest rates, market returns, and CAPE ratios for the period from January 1871 to August 2020, which provided a strong basis for our analysis. Prior to creating our model, preliminary cleaning for unavailable data and data analysis was conducted on market data, including conducting regression analyses, computing long-term figures, and conducting other simple data calculations.**
 
 ## Loading & Cleaning Data
 
 
-```{r one, echo=TRUE}
+```{r setup}
+knitr::opts_chunk$set(echo = FALSE)
 
 #loading all relevant library files
 library(tidyverse)  
@@ -31,8 +35,11 @@ library(vroom)
 library(stringr)
 library(TTR)
 library(zoo)
+```
 
 
+
+```{r one, echo=TRUE}
 # reading csv file of preliminary data
 dataset <- read_csv("projectdata.csv")
 
