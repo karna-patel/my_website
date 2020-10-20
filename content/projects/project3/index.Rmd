@@ -1,0 +1,21 @@
+---
+title: "index"
+author: "Karna Patel"
+date: "20/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+```{r one}
+library(fs)
+file_show(path(getwd(), "Karna Patel - CV.pdf"))
+
+```
+
+
