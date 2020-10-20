@@ -1,0 +1,4 @@
+"0","omega %>% "
+"0","  select(gender, experience, salary) %>% #order variables they will appear in ggpairs()"
+"0","  ggpairs(aes(colour=gender, alpha = 0.3))+"
+"0","  theme_bw()"

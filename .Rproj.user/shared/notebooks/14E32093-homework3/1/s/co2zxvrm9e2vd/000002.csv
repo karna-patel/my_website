@@ -1,0 +1,5 @@
+"0",""
+"0","UN_GDP_data  <-  read_excel((""Download-GDPconstant-USD-countries.xls""), # Excel filename"
+"0","                sheet=""Download-GDPconstant-USD-countr"", # Sheet name"
+"0","                skip=2) # Number of rows to skip"
+"0",""

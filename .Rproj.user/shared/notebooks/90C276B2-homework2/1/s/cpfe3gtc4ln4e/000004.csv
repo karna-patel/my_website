@@ -1,0 +1,8 @@
+"0",""
+"0","ggplot(formula_ci, aes(x=reorder(Year,Year), y=average_annual_anomaly)) +"
+"0","  geom_point() +"
+"0","  geom_errorbar(width=.2, aes(ymin=CI_low, ymax=CI_high)) + "
+"0","  labs(x="" "", y= ""Average annual deviation"", title=""Highest deviation from base period in 2016"", "
+"0","       subtitle=""Confidence intervals of yearly temperature deviations"") + "
+"0","  theme_economist()+"
+"0","  coord_flip()"

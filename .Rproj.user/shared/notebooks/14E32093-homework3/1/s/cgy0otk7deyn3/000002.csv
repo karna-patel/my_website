@@ -1,0 +1,1 @@
+"0","knitr::include_graphics(here::here(""images"", ""yield_curve2.png""), error = FALSE)"

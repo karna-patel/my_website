@@ -1,0 +1,7 @@
+"0","gss_snap_insta <- gss_new %>%"
+"0","  filter(snap_insta != ""NA"") %>%"
+"0","  group_by(snap_insta) %>%"
+"0","  summarise(count_snap_insta = count(snap_insta)) %>%"
+"0","  mutate(proportion = count_snap_insta/sum(count_snap_insta))"
+"0",""
+"0","gss_snap_insta"

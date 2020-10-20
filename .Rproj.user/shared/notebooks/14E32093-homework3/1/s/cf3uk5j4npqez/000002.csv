@@ -1,0 +1,16 @@
+"0","omega <- read_csv(""omega.csv"")"
+"0","glimpse(omega) # examine the data frame"
+"1","Rows: 50"
+"1",""
+"1","
+"
+"1","Columns: 3"
+"1",""
+"1","
+"
+"1","$ salary     <dbl> 81894, 69517, 68589, 74881, 65598, 76840, 78800, 70033, 63535, 77872, ...
+$ gender     <chr> ""male"", ""male"", ""male"", ""male"", ""male"", ""male"", ""male"", ""male"", ""male""...
+$ experience <dbl> 16, 25, 15, 33, 16, 19, 32, 34, 1, 44, 7, 14, 33, 19, 24, 3, 17, 19, 2..."
+"1",""
+"1","
+"

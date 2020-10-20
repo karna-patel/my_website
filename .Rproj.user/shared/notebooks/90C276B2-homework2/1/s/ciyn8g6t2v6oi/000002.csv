@@ -1,0 +1,4 @@
+"0","# Import approval polls data"
+"0","approval_polllist <- read_csv(here::here('data', 'approval_polllist.csv'))"
+"2","Error: 'C:/Users/karna/Desktop/LBS/Data Science/my_website/data/approval_polllist.csv' does not exist.
+"

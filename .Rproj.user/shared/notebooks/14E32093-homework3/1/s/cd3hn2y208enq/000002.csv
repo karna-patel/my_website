@@ -1,0 +1,5 @@
+"0",""
+"0","obs_diff <- yrbss %>%"
+"0","  specify(weight ~ physical_3plus) %>%"
+"0","  calculate(stat = ""diff in means"", order = c(""yes"", ""no""))"
+"0",""

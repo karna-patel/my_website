@@ -1,0 +1,4 @@
+"0","gss_snap_insta_ci <- gss_snap_insta %>%"
+"0","  mutate(Lower_Confidence_Interval = proportion + qnorm(0.025)*sqrt(proportion*(1-proportion)/1372), Higher_Confidence_Interval = proportion + qnorm(0.975)*sqrt(proportion*(1-proportion)/1372), Low_Count = Lower_Confidence_Interval*1372, High_Count = Higher_Confidence_Interval*1372, snap_insta = c(""Use Neither Snapchat nor Instagram"", ""Use One or Both of Snapchat or Instagram""))"
+"0",""
+"0","gss_snap_insta_ci"

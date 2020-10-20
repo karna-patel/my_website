@@ -1,0 +1,6 @@
+"0",""
+"0","infer_ci_email_99 <- email_comb %>% "
+"0","  specify(response=email_time) %>% "
+"0","  generate(reps=1000,type=""bootstrap"") %>% "
+"0","  calculate(stat=""mean"") %>% get_confidence_interval(level=0.99, type=""percentile"")"
+"0","infer_ci_email_99"

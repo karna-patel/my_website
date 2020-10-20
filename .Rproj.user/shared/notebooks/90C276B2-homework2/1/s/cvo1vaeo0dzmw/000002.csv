@@ -1,0 +1,9 @@
+"0","gss <- read_csv( ""smallgss2016.csv"")"
+"0","                # na = c("""", ""Don't know"","
+"0","                #        ""No answer"", ""Not applicable""))"
+"0",""
+"0","inspect(gss)"
+"1","
+"
+"1","categorical variables:  
+"

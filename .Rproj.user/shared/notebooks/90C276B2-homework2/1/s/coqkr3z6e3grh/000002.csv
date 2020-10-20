@@ -1,0 +1,5 @@
+"0","gss_new <- gss %>%"
+"0","  mutate(snap_insta = case_when(snapchat == ""Yes"" | instagrm == ""Yes"" ~ ""Yes"","
+"0","                                snapchat == ""No"" & instagrm == ""No"" ~ ""No"","
+"0","                                TRUE ~ ""NA""))"
+"0","gss_new"

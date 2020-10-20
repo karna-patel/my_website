@@ -1,0 +1,10 @@
+"0","weather <- "
+"0","  read_csv(""https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.csv"", "
+"0","           skip = 1, "
+"0","           na = ""***"")"
+"0",""
+"0","inspect(weather)"
+"1","
+"
+"1","quantitative variables:  
+"

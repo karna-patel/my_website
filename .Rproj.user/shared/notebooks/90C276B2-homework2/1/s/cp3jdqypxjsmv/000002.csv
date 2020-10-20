@@ -1,0 +1,8 @@
+"0","gss_bg <- gss_new %>% "
+"0"," mutate(bachelor_graduate = case_when("
+"0","    gss_deg_fac %in% c(""Bachelor"", ""Graduate"") ~ ""Yes"","
+"0","    gss_deg_fac %in% NA ~ ""NA"","
+"0","    TRUE ~ ""No"""
+"0","  ))"
+"0",""
+"0","gss_bg"

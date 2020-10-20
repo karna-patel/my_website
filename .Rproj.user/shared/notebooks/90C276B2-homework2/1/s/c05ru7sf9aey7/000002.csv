@@ -1,0 +1,8 @@
+"0","bg_prop <- gss_bg %>% "
+"0","  filter(bachelor_graduate == ""Yes"") %>% "
+"0","  filter(twitter != ""NA"") %>% "
+"0","  group_by(twitter) %>% "
+"0","  summarise(count_twitter = count(twitter)) %>% "
+"0","  mutate(proportion = count_twitter/sum(count_twitter)) "
+"0",""
+"0","bg_prop"

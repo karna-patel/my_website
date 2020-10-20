@@ -1,0 +1,11 @@
+"0",""
+"0","tidyweather <- tidyweather %>%"
+"0","  mutate(date = ymd(paste(as.character(Year), month, ""1"")), #ymd takes different years, months and days & formats it into year-month-day"
+"0","         month = month(date, label=TRUE),"
+"0","         year = year(date)) #I believe using month() and date() here changes the type of the variables"
+"0",""
+"0","inspect(tidyweather)"
+"1","
+"
+"1","categorical variables:  
+"

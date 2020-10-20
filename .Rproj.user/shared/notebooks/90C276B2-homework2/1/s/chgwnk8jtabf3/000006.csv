@@ -1,0 +1,6 @@
+"0",""
+"0","#basic statistics about hours spent checking emails "
+"0","mean_median_time <- email_comb %>% "
+"0","                    summarise(mean_hours=mean(email_time),"
+"0","                              median_hours=median(email_time))"
+"0","mean_median_time #manual approach"

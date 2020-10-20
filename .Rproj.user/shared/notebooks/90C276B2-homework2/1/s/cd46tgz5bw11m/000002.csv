@@ -1,0 +1,10 @@
+"0","tidyweather <- weather %>%"
+"0","  select(Year:Dec) %>%"
+"0","  pivot_longer(cols=2:13, names_to = ""month"" ,values_to = ""delta"")"
+"0","  #gather(2:13, key = ""Month"", value = ""delta"") #another way to do it, orders by month"
+"0",""
+"0","inspect(tidyweather)"
+"1","
+"
+"1","categorical variables:  
+"
