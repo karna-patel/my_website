@@ -1,0 +1,271 @@
+---
+title: "IF Project"
+author: "Group 15A"
+date: "15/10/2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+
+## Loading & Cleaning Data
+
+
+```{r one, echo=TRUE}
+
+#loading all relevant library files
+library(tidyverse)  
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+library(stringr)
+library(TTR)
+library(zoo)
+
+
+# reading csv file of preliminary data
+dataset <- read_csv("projectdata.csv")
+
+
+#  data cleaning on our CSV file.
+dataset2 <- dataset %>% 
+            filter(Year >= 1900 ) %>%
+               # cutting data before 1900
+            mutate(                     # changing months from numbers to charachters
+                    Month = case_when(
+                    Month == 1 ~ "January",
+                    Month == 2 ~ "February",
+                    Month == 3 ~ "March",
+                    Month == 4 ~ "April",
+                    Month == 5 ~ "May",
+                    Month == 6 ~ "June",
+                    Month == 7 ~ "July",
+                    Month == 8 ~ "August",
+                    Month == 9 ~ "September",
+                    Month == 10 ~ "October",
+                    Month == 11 ~ "November",
+                    Month == 12 ~ "December"))
+
+dataset2   # looking at data to see what it looks like
+
+# Now, we will plot the CAPE ratio to see what it looks like over the selected 70 year period.
+
+plot_1 <- dataset2 %>% ggplot(aes(x=Date))+
+                      geom_line(aes (y=`CAPE (P/E10)`),
+                                     color = "black", 
+                                     size = 1)+
+                      geom_line(aes (y=mean(`CAPE (P/E10)`)),
+                                     color = "maroon", 
+                                     size = 1)+          
+                      labs(title = "Exhibit 1: Mapping the Historical Cape Ratio", 
+                           subtitle = "S&P500's Historical CAPE Ratio alongside Historical Average", 
+                           caption = "Data Source: Princeton University Press, Robert J. Shiller ",
+                           y = "CAPE Ratio",
+                           x = "Year") +
+                      theme_bw(base_size = 10) +
+                      geom_label(x=1999,
+                                y=45, 
+                                label ="2000 Dot-Com Bubble", 
+                                size = 3) +
+                      geom_label(x=1929,
+                                y=35, 
+                                label ="1929 Stock Market Bubble", 
+                                size = 3)+
+                      geom_label(x=2008,
+                                y=10, 
+                                label ="2008 U.S. Housing Crisis", 
+                                size = 3)
+plot_1
+
+
+
+```
+
+## Analyzing Data 
+
+```{r two, echo=TRUE}
+
+# We want to confirm the accuracy of the provided data by doing our own calculation on the CAPE ratio.
+
+dataset3 <- dataset2 %>%  
+            filter(Decade >= 1950 | Decade <= 2010) %>%
+            mutate(Calculated_CAPE = `Real Prices` / `BRolling Average Real Earnings`) %>%
+            group_by(Decade)
+            # summarise(Median = median(Calculated_CAPE), `CAPE (P/E10)`,`Year`, `Decade`)
+            
+dataset3
+
+
+#Creating graph to show Cape Ratio vs. Market Returns following 10 Years
+
+plot_2 <-ggplot(data = dataset3, aes(x = `CAPE (P/E10)`, 
+                            y = `10Y FRolling Return Percentage`, 
+                            color = Decade)) +
+              geom_point() +
+              labs(title = "Exhibit 3: The CAPE Ratio is a Good Predictor of Long-Term Market Returns...", 
+                   subtitle = "CAPE Ratios and Subsequent 10 Year Real Market Returns", 
+                   caption = "Data Source: Princeton University Press, Robert J. Shiller", 
+                   y = "Next 10Y Average Annual Return",
+                   x = "CAPE Ratio") +
+              theme_bw(base_size = 10) +
+              scale_x_continuous() +
+              scale_y_continuous() + 
+              geom_smooth(method="lm",color = "darkred") +
+              guides(colour = guide_colourbar(order = 1))
+
+plot_2
+
+
+#Creating graph to show Cape Ratio vs. Market Returns following 1 Years
+
+plot_3 <-ggplot(data = dataset3, aes(x = `CAPE (P/E10)`, 
+                            y = `1Y FRolling Return Percentage`, 
+                            color = Decade)) +
+              geom_point()+
+              labs(title = "Exhibit 4: The CAPE Ratio is NOT a Good Predictor of Short-Term Market Returns...", 
+                   subtitle = "CAPE Ratios and Subsequent 1 Year Real Market Returns", 
+                   caption = "Data Source: Princeton University Press, Robert J. Shiller", 
+                   y = "Next 1Y Annual Return",
+                   x = "CAPE Ratio") +
+              theme_bw(base_size = 10) +
+              scale_x_continuous() +
+              scale_y_continuous() + 
+              geom_smooth(method="lm",color = "darkred")+
+            scale_fill_gradientn(colours = terrain.colors(6))
+
+plot_3
+
+
+
+
+
+```
+
+
+
+
+```{r three, echo=TRUE}
+
+
+#loading cleaned decade summary data
+
+summary_data <-read_csv("Datax2.csv")
+
+summary_data1 <- summary_data %>%
+                  filter(Decade >= 1950)
+
+
+# Analyzing Median Cape Ratios to see Trends since 1950
+dataset3
+
+
+dataset4 <- dataset3 %>%
+            filter(Decade <= 2010) %>%
+            group_by(Decade) %>%
+            # summarise(Max = max(`Rolling 10Y CAPE Average`), 
+            #           Min = min(`Rolling 10Y CAPE Average`), 
+            #           Median = median(`CAPE (P/E10)`)) %>%
+            arrange(Year)
+
+
+dataset4
+
+#Moving Average Graphs
+
+decade_graph <- ggplot(dataset4, aes(x = `Year`,y=`CAPE (P/E10)`))+
+                      geom_line(size=1)+
+                      geom_smooth(method="lm", 
+                                  color = "maroon", 
+                                  size = 1)+
+                      geom_quantile()+
+                      labs(title = "Exhibit 2:  CAPE median for Drifting Valuations over the past 70 years", 
+                                 subtitle = "CAPE Ratio Moving Average with Quantiles", 
+                                 caption = "Data Source: Princeton University Press, Robert J. Shiller",
+                                 y = "CAPE Ratio",
+                                 x = "Year") +
+                      theme_bw(base_size = 10)
+decade_graph
+
+
+decade_graph2 <- ggplot(dataset4, aes(x = `Year`,y=`CAPE (P/E10)`))+
+                      geom_line(size=1)+
+                      geom_smooth(method="lm", 
+                                  color = "maroon", 
+                                  size = 1)+
+                      facet_grid(.~Decade, scales = "free_x")+
+                      labs(title = "Exhibit 5: How does the CAPE ratio median change from decade to decade?", 
+                                 subtitle = "CAPE Ratio Moving Median by Decades", 
+                                 caption = "Data Source: Princeton University Press, Robert J. Shiller",
+                                 y = "CAPE Ratio",
+                                 x = "Year") +
+                      theme_bw(base_size = 10)+
+                       scale_x_continuous(breaks = c())
+decade_graph2
+
+
+
+# median CAPE ratios graph
+d4 <- dataset4 %>% filter(Decade <= 2000) %>%
+            group_by(Decade) %>%
+            summarise(Median = median(`CAPE (P/E10)`)) 
+d4
+
+g4 <- ggplot (d4,aes (x=`Decade`,y = `Median`)) +
+                  geom_col()+
+                  labs(title = "Exhibit 6: How have Median CAPE ratios changed?", 
+                           subtitle = "Median 10Y CAPE", 
+                           caption = "Data Source: Princeton University Press, Robert J. Shiller ",
+                           y = "Median CAPE ",
+                           x = "Decade")+ 
+                  theme_bw()+
+                  geom_label(inherit.aes = TRUE, label = d4$Median)
+
+g4
+
+
+
+
+```
+
+```{r four, echo=TRUE}
+
+
+#Returns graph
+
+returns <- read_csv("returnsdata.csv")
+returns
+
+returns_plot <- returns %>% ggplot(aes(x=Date)) +
+                      geom_line(aes(y=`CAPE Portfolio`, 
+                                    color="CAPE Portfolio"))+
+                      geom_line(aes(y=`Buy and Hold Portfolio`, 
+                                    color="Buy and Hold Portfolio"))+
+                      # facet_grid(~Year,scales = "free_x")+
+                      labs(title = "Exhibit 7: How does the Strategy Perform?", 
+                           subtitle = "Portfolio Value of $1M invested in CAPE Ratio Strategy vs. Buy & Hold Strategy", 
+                           caption = "Data: Our Calculated Returns Analysis ",
+                           y = "Portfolio Value",
+                           x = "Year") +
+                      theme_bw(base_size = 10)+
+                      scale_y_continuous()+
+                      scale_x_continuous()+
+                      geom_label(x=2015,
+                                y=1750000, 
+                                label ="CAPE Portfolio: $1,770,296", 
+                                size = 3)+
+                      geom_label(x=2018,
+                                y=1500000, 
+                                label ="BH Portfolio: $1,823,294", 
+                                size = 3)+ 
+                        theme(legend.position = "none")
+
+returns_plot
+
+```
