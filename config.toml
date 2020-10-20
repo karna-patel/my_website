@@ -82,7 +82,7 @@ disqusShortname = ""
     # the 'static/img' folder.
     title = "Karna Patel"
     subtitle = "HiLearn , my name is Karna and I am a Canadian currently studying at LBS."
-    buttonText = "CV"
+    buttonText = "Learn More"
 
 
   # Tiles Section
@@ -102,11 +102,11 @@ disqusShortname = ""
       image = "pic02.jpg"
       url = "projects/project2"
 
-    #[[params.tiles.showcase]]
-    #  title = "Magna"
-     # subtitle = "Lorem Etiam Nullam"
-    #  image = "pic03.jpg"
-     # url = "blogs/magna"
+    [[params.tiles.showcase]]
+    title = "Summary of Experience"
+    subtitle = "CV"
+    image = "pic03.jpg"
+     url = "projects/project3"
 
     #[[params.tiles.showcase]]
     #  title = "Ipsum"
