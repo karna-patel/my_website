@@ -154,13 +154,6 @@ plot_3
 ```{r three, echo=TRUE}
 
 
-#loading cleaned decade summary data
-
-summary_data <-read_csv("Datax2.csv")
-
-summary_data1 <- summary_data %>%
-                  filter(Decade >= 1950)
-
 
 # Analyzing Median Cape Ratios to see Trends since 1950
 dataset3
