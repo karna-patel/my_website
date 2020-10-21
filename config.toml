@@ -102,17 +102,17 @@ disqusShortname = ""
       image = "pic02.jpg"
       url = "projects/project2"
 
-    [[params.tiles.showcase]]
-    title = "Summary of Experience"
-    subtitle = "CV"
-    image = "pic03.jpg"
-    url = "download/Karna Patel - CV.pdf"
+#[[params.tiles.showcase]]
+ #   title = "Summary of Experience"
+  #  subtitle = "CV"
+   # image = "pic03.jpg"
+  # url = "download/Karna Patel - CV.pdf"
 
-    #[[params.tiles.showcase]]
-    #  title = "Ipsum"
-    #  subtitle = "Nisl Sed Aliquam"
-      #image = "pic04.jpg"
-     # url = "blogs/ipsum"
+    [[params.tiles.showcase]]
+      title = "Summary of Experience"
+      subtitle = "CV"
+      image = "pic03.jpg"
+      url = "blogs/Karna Patel CV.pdf"
 
     #[[params.tiles.showcase]]
      # title = "Consequat"
