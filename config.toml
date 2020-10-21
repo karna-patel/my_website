@@ -91,14 +91,14 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Work Example"
-      subtitle = "Investing Using the CAPE Ratio"
+      title = "Investing Using the CAPE Ratio"
+      subtitle = "Can it be used effectively as a financial indicator?"
       image = "pic01.jpg"
       url = "projects/project1"
 
     [[params.tiles.showcase]]
-     title = "Karna's Watchlist"
-     subtitle = "My Favourite Movies & Tv-Shows"
+     title = "GDP components over time and among countries"
+     subtitle = "How have they changed over time?"
       image = "pic02.jpg"
       url = "projects/project2"
 
@@ -106,7 +106,7 @@ disqusShortname = ""
     title = "Summary of Experience"
     subtitle = "CV"
     image = "pic03.jpg"
-     url = "Karna Patel - CV.pdf"
+    url = "download/Karna Patel - CV.pdf"
 
     #[[params.tiles.showcase]]
     #  title = "Ipsum"
