@@ -174,16 +174,16 @@ disqusShortname = ""
     title = "Email"
     email = "karnapatel16@gmail.com"
 
-    [[params.contact.address]]
+    [[params.contact.phone]]
     #street = "Regent's Park""
-    city = "Toronto"
-    country = "Canada"
+    phone = "1-800-Karna"
+   # country = "Canada"
 
     [[params.contact.address]]
    # title = "Address"
-    street = "Regent's Park"
-    city = "London"
-    country = "United Kingdom"
+    # street = ""
+    city = "London | United Kingdom"
+    country = "Toronto | Canada"
 
   # Footer section
   [params.footer]
