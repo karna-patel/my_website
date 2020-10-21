@@ -140,12 +140,12 @@ disqusShortname = ""
     title = "About Me"
     subtitle = """
     Hello and welcome to my website! I am a Canadian student currently studying finance at London Business School.
-    Prior to LBS, I worked in Corporate Development at a cloud accounting software company and also completed multiple internships, 
+    Prior to LBS, I worked in Corporate Development at a cloud accounting software company and completed multiple internships, 
     including the finance department of one of Canada’s largest charities, the investment research team at a blockchain consulting firm, 
     IBM Canada’s Watson Investment Research Project, and a private equity firm.I completed my undergradute studies from the
     Richard Ivey School of Business in 2019. In my free time, you will probably see me watching basketball and drinking too much coffee."""   
-    buttonText = "About Me"
-    url = "About"
+   # buttonText = "About Me"
+   # url = "About"
 
 
   # Contact section
@@ -181,7 +181,7 @@ disqusShortname = ""
 
     [[params.contact.address]]
    # title = "Address"
-    street = "Regent's Park""
+    street = "Regent's Park"
     city = "London"
     country = "United Kingdom"
 
