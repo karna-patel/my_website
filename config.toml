@@ -20,7 +20,7 @@ disqusShortname = ""
 
   # Provide your metadata here.
   name = "Karna Patel"
-  description = "Hi, my name is Karna and I am a Canadian currently studying at London Business School!"
+  description = "Welcome!"
   # Link custom assets relative to /static
   custom_css = []
   custom_js  = []
@@ -143,7 +143,7 @@ disqusShortname = ""
     Prior to LBS, I worked in Corporate Development at a cloud accounting software company and also completed multiple internships, 
     including the finance department of one of Canada’s largest charities, the investment research team at a blockchain consulting firm, 
     IBM Canada’s Watson Investment Research Project, and a private equity firm.I completed my undergradute studies from the
-    Richard Ivey School of Business in 2019. In my free time, you will probably see my playing basketball and drinking too much coffee."""   
+    Richard Ivey School of Business in 2019. In my free time, you will probably see me watching basketball and drinking too much coffee."""   
     buttonText = "About Me"
     url = "About"
 
@@ -174,15 +174,16 @@ disqusShortname = ""
     title = "Email"
     email = "karnapatel16@gmail.com"
 
-   # [[params.contact.phone]]
-   # title = "Phone"
-    #phone = "(000) 000-0000 x1234"
+    [[params.contact.address]]
+    #street = "Regent's Park""
+    city = "Toronto"
+    country = "Canada"
 
     [[params.contact.address]]
    # title = "Address"
-    #street = "Street"
-    city = "London | Toronto"
-   # country = "Worldwide"
+    street = "Regent's Park""
+    city = "London"
+    country = "United Kingdom"
 
   # Footer section
   [params.footer]

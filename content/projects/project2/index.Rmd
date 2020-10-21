@@ -25,6 +25,21 @@ knitr::opts_chunk$set(
   fig.height=6.75,
   fig.align = "center"
 )
+
+
+library(tidyverse)  
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+library(stringr)
+library(TTR)
+library(zoo)
 ```
 
 
@@ -41,7 +56,7 @@ UN_GDP_data  <-  read_excel(("Download-GDPconstant-USD-countries.xls"), # Excel 
 
 ```
 
- The first thing you need to do is to tidy the data, as it is in wide format and you must make it into long, tidy format. Please express all figures in billions (divide values by `1e9`, or $10^9$), and you want to rename the indicators into something shorter.
+
 
 ```{r reshape_GDP_data}
 
@@ -121,11 +136,9 @@ ggplot (tidy_GDP_data2, aes (x = Year,
 
 ```
 
-Secondly, recall that GDP is the sum of Household Expenditure (Consumption *C*), Gross Capital Formation (business investment *I*), Government Expenditure (G) and Net Exports (exports - imports). Even though there is an indicator `Gross Domestic Product (GDP)` in your dataframe, I would like you to calculate it given its components discussed above.
 
-> What is the % difference between what you calculated as GDP and the GDP figure included in the dataframe?
 
-```{r gdp2, echo=FALSE, out.width="100%"}
+```{r gdp3, echo=FALSE, out.width="100%"}
 #Recalculating GDP
 
 tidy_GDP_data
@@ -144,17 +157,12 @@ tidy_GDP_data3 <- tidy_GDP_data %>%
                     mutate(CalculatedGDP = sum (IndicatorName == "Household Expenditure",
                         IndicatorName == "Government Expenditure",
                         IndicatorName =="Gross capital formation",
-                        IndicatorName == "Exports",(
-                        IndicatorName == "Imports")))
+                        IndicatorName == "Exports",
+                        IndicatorName == "Imports"))
 
 
 
 tidy_GDP_data3 
-
-
-
-
-knitr::include_graphics(here::here("images", "gdp2.png"), error = FALSE)
 
 ```
 
