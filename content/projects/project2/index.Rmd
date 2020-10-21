@@ -4,6 +4,11 @@ author: "Karna Patel"
 date: "21/10/2020"
 output: html_document
 ---
+**How has GDP among different countries changed over time? I hope to answer this question through the following analysis done on R, including a breakdown on the trends of a couple specific countries. While data analysis is always important, I will try to understand what the identified trends are and what has caused them.**
+
+**The main components of gross domestic product, GDP are personal consumption (C), business investment (I), government spending (G) and net exports (exports - imports).We will look at how GDP and its components have changed over time, and compare different countries and how much each component contributes to that country's GDP.**
+
+
 
 ```{r setup }
 knitr::opts_chunk$set(
@@ -43,9 +48,6 @@ library(zoo)
 ```
 
 
-GDP components over time and among countries
-
-The main components of gross domestic product, GDP are personal consumption (C), business investment (I), government spending (G) and net exports (exports - imports).We will look at how GDP and its components have changed over time, and compare different countries and how much each component contributes to that country's GDP. 
 
 
 ```{r read_GDP_data, eval=TRUE}
@@ -199,4 +201,4 @@ ggplot (tidy_GDP_data4, aes (x = Year, y = Expenditure, color = IndicatorName, g
         guides(color=guide_legend("Components of GDP"))
       
 ```
-
+**Why do you think the trends for the US, Canada, and Mexico are what they are? Feel free to leave a comment or email me, I would love to hear what your thoughts are!**
